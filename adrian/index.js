@@ -29,6 +29,9 @@ class Pokemon {
     }
   }
   showStatus() {
+    if (this.health <= 0) {
+      console.log(`${this.name} is already dead`);
+    }
     console.log(
       `${this.name} status \n health: ${this.health} \n magic: ${this.magic}`
     );
