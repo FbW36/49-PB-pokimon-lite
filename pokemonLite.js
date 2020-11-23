@@ -25,7 +25,7 @@ function Pokemon(name, magic, health) {
 	}
 	
     // attack the enemy: takes magic points (specified by the skill used) from the attacker and takes health points from the enemy
-    this.attack = function (skillIdx, enemy){
+    this.attack = function (skillIdx, enemy) {
 	// we need to see if the pokemon has enough magic to launch the attack: if pokemon.magic >= skill.amountOfMagic
         let targetSkill = this.skills[skillIdx];
 		if (targetSkill.amountOfMagic <= this.magic) {
@@ -42,7 +42,7 @@ function Pokemon(name, magic, health) {
         enemy.life();
     }
 	// a new function that checks health. the function will be called from the pokemon who attacks THIS one!
-    this.life = function(){
+    this.life = function() {
         if(this.health <= 0){
             console.log(`
             -------------------
@@ -51,7 +51,7 @@ function Pokemon(name, magic, health) {
         }
     }
     this.getMagic = function () {
-		let magicPoints = Math.floor(Math.random() * 10) * 5;
+		let magicPoints = Math.ceil(Math.random() * 10) * 5;
 		this.magic += magicPoints;
         console.log(`⋆⋆⋆ ${this.name} got ${magicPoints} magic back`);
     }
@@ -62,7 +62,6 @@ function AttackSkill(obj) {
     this.attackName = obj.attackName;
     this.damageAttack = obj.damageAttack;
     this.amountOfMagic = obj.amountOfMagic;
-        
 }
 
 //--- Create Pokemon
@@ -73,14 +72,12 @@ let charmander = new Pokemon ("Charmander", 125, 115)
 
 
 //--- Attack Skills
-// let lightning = new AttackSkill({attackName: "lightning", damageAttack: 40, amountOfMagic: 30});
-// let poisonSeed = new AttackSkill ({attackName: "poison seed", damageAttack: 20, amountOfMagic: 20});
-// let throwFood = new AttackSkill({ attackName: "throw food", damageAttack: 30, amountOfMagic: 15 });
 const skills = {
     lightning: {attackName: "lightning", damageAttack: 40, amountOfMagic: 30},
     poisonSeed: {attackName: "poison seed", damageAttack: 20, amountOfMagic: 20},
     throwFood:{ attackName: "throw food", damageAttack: 30, amountOfMagic: 15}
- }
+}
+
 //--- Learn attack skills
 // connect attackSkills to pokemon
 pikachu.learnAttackSkill(skills.lightning);
