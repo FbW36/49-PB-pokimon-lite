@@ -34,17 +34,19 @@ class Skill extends Pokemon {
         let damagedealt = 0;
         let manaUsed = 0;
         let enemyHealth = 0;
+        
         if (skill.manacost < pokemon.mana) {
             enemyHealth = enemy.health - skill.damage;
             damagedealt = skill.damage;
             manaUsed = pokemon.mana - skill.manacost;
             enemy.health = enemyHealth;
             pokemon.mana = manaUsed;
+            if (enemy.health === 0) {
+                return `You defeted ${enemy.pokemon}!`;
+            }
             return `${pokemon.pokemon} deals ${damagedealt} damage to ${enemy.pokemon}!`;
         } else if (pokemon.mana === 0) {
             return this.refillMana(pokemon);
-        } else if (enemy.health === 0) {
-            return `You defeted ${enemy}!`;
         } else {
             return "You're Pokemon does not have enough mana!";
         }
@@ -86,7 +88,39 @@ console.log(skill.showStatus(Glumanga))
 console.log(skill.attack(Glumanga, tackle, Pikachu));
 console.log(skill.showStatus(Pikachu))
 skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
 console.log(skill.attack(Pikachu, lightning, Glumanga));
 console.log(skill.attack(Glumanga, fireBlast, Pikachu));
 console.log(skill.showStatus(Pikachu))
+console.log(skill.showStatus(Glumanga))
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+skill.refillMana(Pikachu)
+console.log(skill.attack(Pikachu, lightning, Glumanga));
+console.log(skill.attack(Glumanga, fireBlast, Pikachu));
+console.log(skill.showStatus(Pikachu))
+console.log(skill.showStatus(Glumanga))
+console.log(skill.attack(Pikachu, lightning, Glumanga));
+console.log(skill.attack(Glumanga, fireBlast, Pikachu));
+console.log(skill.showStatus(Pikachu))
+console.log(skill.showStatus(Glumanga))
+console.log(skill.attack(Pikachu, lightning, Glumanga));
+console.log(skill.showStatus(Pikachu))
+
 
